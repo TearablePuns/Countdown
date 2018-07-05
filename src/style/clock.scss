@@ -1,9 +1,40 @@
 .clock {
     grid-row: 3/4;
     grid-column: 2/11;
-    background-color: $color-gray-one;
-    height: 75%;
     align-self: end;
+
+    background-color: $color-gray-one;
+    text-align: left;
+    height: 75%;
+    width: 100%;
+
     -webkit-clip-path: polygon(7% 0, 100% 0, 93% 100%, 0% 100%);
     clip-path: polygon(7% 0, 100% 0, 93% 100%, 0% 100%);
+   
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 275px));
+    grid-column-gap: 80px;
+    align-items: center;
+    justify-items: center;
+    justify-content: center;
+    align-content: center;
+
+    &__box {
+        display: flex;
+        flex-direction: column;
+        
+    }
+    &__title {
+        font-size: 22px;
+        line-height: 25px;
+        color: $color-yellow-one;
+        font-family: "Roboto Condensed"
+    }
+    &__amount {
+        font-size: 90px;
+        font-weight: bold;
+        line-height: 115px;
+        color: white;
+        font-family: "Roboto Condensed"
+    }
 }
