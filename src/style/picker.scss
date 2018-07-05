@@ -1,6 +1,6 @@
 .picker {
     grid-column: 5/10;
-    grid-row: 2/4;
+    grid-row: 2/3;
     // background: cornflowerblue;
     
     padding-bottom: 50px;
@@ -10,6 +10,7 @@
         font-size: 80px;
         font-family: "Roboto Condensed";
         font-weight: bold;
+        justify-self: center;
         color: $color-gray-one;
         text-align: center;
         border: none;
