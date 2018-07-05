@@ -7,10 +7,14 @@
     line-height: 19px;
     text-align: center;
     font-weight: 100;
-    font-family: "Roboto Condensed";
+    font-family: $font-roboto;
     background-color: transparent;
     border: none;
-    transform: rotate(-66deg) translate(-55px, -60px);
+    transform: rotate(-67.1deg) translate(-45px, -35px);
+    &:focus {
+        outline: none;
+    }
+    height: 50px;
     i {
         padding-right: 10px;
     }
