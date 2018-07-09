@@ -91,7 +91,7 @@ export default class App extends Component {
 
     this.timer = setInterval(function () {
 
-      var now = today.getTime();
+      var now = moment().toDate().getTime();
       var distance = countDownDate - now;
 
       var days = Math.floor(distance / (1000 * 60 * 60 * 24));
