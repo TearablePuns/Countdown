@@ -28,6 +28,7 @@ export default class App extends Component {
 
   handleChange = function (date) {
     console.log('APP JS HANDLE CHANGE', date._d);
+    clearInterval(this.timer);
     this.setState({
       startDate: date
     });
@@ -71,7 +72,7 @@ export default class App extends Component {
         <Clock timeRemaining={this.state.timeRemaining}/>,
         ChangeDate('Change Date', () => this.setState({ active: false })),
         LargeText('04/03'),
-        <label className="grid__remaining">remaining</label>
+        <label className="grid__remaining">remaining until the next occurrence of this event</label>
       ]
     } else {
       return [
