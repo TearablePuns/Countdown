@@ -42,11 +42,13 @@ export default class App extends Component {
     var currentMonth = today.getMonth();
     var birthMonth = bday.getMonth();
 
+    
 
     var timeBetween = today.getTime() - bday.getTime();
     var daysOld = Math.floor(timeBetween / (1000 * 60 * 60 * 24))
     var yearsOld = Number((daysOld / 365).toFixed(0));
     var ageString = yearsOld.toString();
+
     this.setState({
       age: yearsOld,
       active: true,
@@ -69,7 +71,6 @@ export default class App extends Component {
         affix: "th"
       })
     }
-    console.log(ageString);
     if (birthMonth > currentMonth) {
       bday.setFullYear(today.getFullYear())
     } else if (birthMonth < currentMonth) {
@@ -115,17 +116,25 @@ export default class App extends Component {
     }.bind(this), 1000);
   }.bind(this)
 
+  getBirthDate = function(date) {
+    const month = date.getMonth() + 1;
+    const day = date.getDate();
+    if(month < 10) {
+      return `0${month}/${day}`
+    }
+    return `${month}/${day}`
+  }.bind(this);
   renderItems = function () {
     if (this.state.active) {
       return [
-        <Clock timeRemaining={this.state.timeRemaining} />,
+        <Clock key={0} timeRemaining={this.state.timeRemaining} />,
         ChangeDate('Change Date', () => this.setState({ active: false })),
-        LargeText('04/03'),
-        <label className="grid__remaining">remaining until the {this.state.age}{this.state.affix} occurrence of this event</label>
+        LargeText(this.getBirthDate(this.state.startDate.toDate())),
+        <label key={3} className="grid__remaining">remaining until the {this.state.age}{this.state.affix} occurrence of this event</label>
       ]
     } else {
       return [
-        <Picker startDate={this.state.startDate} callback={(date) => this.handleChange(date)} />,
+        <Picker key={0} startDate={this.state.startDate} callback={(date) => this.handleChange(date)} />,
         Button('Generate Countdown', () => this.handleGenerate())
       ]
     }
